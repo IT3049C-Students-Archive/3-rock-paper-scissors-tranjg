@@ -50,7 +50,15 @@ class RockPaperScissors {
    * @param {string} userSelection user selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
    */
   play(userSelection){
-
+    //return this.determineWinner(userSelection, this.generateCPUResponse());
+    this.generateCPUResponse();
+    this.determineWinner();
+    if (this.determineWinner() == `win`){
+      this.score.user ++;
+    } else if (this.determineWinner() == `lose`){
+      this.score.cpu ++;
+    }
+    this.gameHistoryLog.push(`Justin selected Scissors, CPU selected Paper: Yahya wins wins`);
   }
 
 }
