@@ -51,14 +51,15 @@ class RockPaperScissors {
    */
   play(userSelection){
     //return this.determineWinner(userSelection, this.generateCPUResponse());
-    this.generateCPUResponse();
+    let CPUResponse = this.generateCPUResponse();
     this.determineWinner();
     if (this.determineWinner() == `win`){
       this.score.user ++;
+      this.gameHistoryLog.push(this.username + ` selected` + userSelection + ` CPU selected` + CPUResponse + ` ` + userSelection + ` wins`);
     } else if (this.determineWinner() == `lose`){
       this.score.cpu ++;
+      this.gameHistoryLog.push(this.username + ` selected` + userSelection + ` CPU selected` + CPUResponse + ` ` + userSelection + ` loses`);
     }
-    this.gameHistoryLog.push(`Justin selected Scissors, CPU selected Paper: Yahya wins wins`);
   }
 
 }
