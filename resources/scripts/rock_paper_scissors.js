@@ -37,7 +37,7 @@ class RockPaperScissors {
   determineWinner(userSelection, cpuSelection){
     if (userSelection === cpuSelection){
       return `tie`;
-    } else if ((userSelection == `rock` && cpuSelection == `scissors`) || (userSelection == `paper` && cpuSelection == `rock`) || (userSelection == `scissors` && cpuSelection == `paper`)){
+    } else if ((userSelection === `rock` && cpuSelection === `scissors`) || (userSelection === `paper` && cpuSelection === `rock`) || (userSelection === `scissors` && cpuSelection === `paper`)){
       return `win`;
     } else {
       return `lose`;
@@ -53,12 +53,14 @@ class RockPaperScissors {
     //return this.determineWinner(userSelection, this.generateCPUResponse());
     let CPUResponse = this.generateCPUResponse();
     this.determineWinner();
-    if (this.determineWinner() == `win`){
+    if (this.determineWinner() === `win`){
       this.score.user ++;
       this.gameHistoryLog.push(this.username + ` selected` + userSelection + ` CPU selected` + CPUResponse + ` ` + userSelection + ` wins`);
-    } else if (this.determineWinner() == `lose`){
+    } else if (this.determineWinner() === `lose`){
       this.score.cpu ++;
       this.gameHistoryLog.push(this.username + ` selected` + userSelection + ` CPU selected` + CPUResponse + ` ` + userSelection + ` loses`);
+    } else {
+      this.gameHistoryLog.push(this.username + ` selected` + userSelection + ` CPU selected` + CPUResponse + ` ` + userSelection + ` ties`);
     }
   }
 
