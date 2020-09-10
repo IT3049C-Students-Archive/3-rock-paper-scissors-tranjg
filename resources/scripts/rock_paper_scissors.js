@@ -1,9 +1,9 @@
-class RockPaperScissors {
+class RockPaperScissors{
   constructor(username) {
     this.username = username;
     this.score = {
       user: 0,
-      cpu:0 
+      cpu:0
     },
     this.gameHistoryLog = [];
   }
@@ -14,18 +14,20 @@ class RockPaperScissors {
    */
   generateCPUResponse(){
     const acceptedValues = [ `rock`, `paper`, `scissors` ];
-
-    return ;
+    function getRandomInt(x) {
+      return Math.floor(Math.random() * Math.floor(x));
+    }
+    return acceptedValues[getRandomInt(3)];
   }
   /**
    * returns one of the following values: `win`, `lose`, `tie`
    * tie:
    *     the user selection the same as the CPU
-   * win: 
+   * win:
    *    (user is `rock` and cpu is `scissors
    *     OR
-   *    (user is `paper` and cpu is `rock`) 
-   *     OR 
+   *    (user is `paper` and cpu is `rock`)
+   *     OR
    *    (user is `scissors` and cpu is `paper`)
    * `lose`:
    *    the opposite case :)
@@ -33,15 +35,30 @@ class RockPaperScissors {
    * @param {string} cpuSelection computer selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
    */
   determineWinner(userSelection, cpuSelection){
+    if (userSelection === cpuSelection){
+      return `tie`;
+    } else if ((userSelection === `rock` && cpuSelection === `scissors`) || (userSelection === `paper` && cpuSelection === `rock`) || (userSelection === `scissors` && cpuSelection === `paper`)){
+      return `win`;
+    } else {
+      return `lose`;
+    }
 
   }
 
   /**
-   * 
+   *
    * @param {string} userSelection user selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
    */
   play(userSelection){
-
+    //return this.determineWinner(userSelection, this.generateCPUResponse());
+    let CPUResponse = this.generateCPUResponse();
+    let outcome = this.determineWinner(userSelection, CPUResponse);
+    if (outcome === `win`){
+      this.score.user ++;
+    } else if (outcome === `lose`){
+      this.score.cpu ++;
+    }
+    this.gameHistoryLog.push(`<br>${this.username} selected ${userSelection}, CPU selected ${CPUResponse}: ${this.username} ${outcome}s.`);
   }
 
 }
