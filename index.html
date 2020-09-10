@@ -11,41 +11,40 @@
 </head>
 
 <body>
-    <div class="container">
-        <!-- WORK FROM INSIDE THIS CONTAINER-->
+<div class="container">
+    <!-- WORK FROM INSIDE THIS CONTAINER-->
     <h1> Rock Paper Scissors</h1>
-        <div id="welcome-screen">
-            <form id="name-form">
-                <div class="form-group">
-                    <label for="username"> Your Name </label>
-                    <input id="username" name="username" placeholder="Enter Name Here..." class="form-control">
-                </div>
-                <button id="start-game-button" class="btn btn-primary">Start Game!</button>
-            </form>
-
-        </div>
-        <div id="game-screen">
-            <div id="score-tally">
-                <p id="score">User: 0 v CPU: 0</p>
+    <div id="welcome-screen">
+        <form id="name-form">
+            <div class="form-group">
+                <label for="username"> Your Name </label>
+                <input id="username" name="username" placeholder="Enter Name Here..." class="form-control">
             </div>
-                <form action="" id="game-form">
-                    <div  class="form-group">
-                    <label for="user-selection">Select your choice:</label>
-                    <select name="user-selection" id="user-selection" class="custom-select">
-                        <option value="">Rock</option>
-                        <option value="">Paper</option>
-                        <option value="">Scissors</option>
-                    </select>
-                    </div>
-                    <button id="go-button" class="btn btn-success">Go!</button>
-                </form>
-                <p id="game-history"></p>
-        </div>
+            <button id="start-game-button" class="btn btn-primary" type="button" formmethod="get">Start Game!</button>
+        </form>
     </div>
+    <div id="game-screen">
+        <div id="score-tally">
+            <p id="score">User: 0 v CPU: 0</p>
+        </div>
+        <form action="" id="game-form">
+            <div  class="form-group">
+                <label for="user-selection">Select your choice:</label>
+                <select name="user-selection" id="user-selection" class="custom-select">
+                    <option value="rock">Rock</option>
+                    <option value="paper">Paper</option>
+                    <option value="scissors">Scissors</option>
+                </select>
+            </div>
+            <button id="go-button" class="btn btn-success" type="button" formmethod="post">Go!</button>
+        </form>
+        <p id="game-history"></p>
+    </div>
+</div>
 
-    <!-- Our own Scripts -->
-    <script src="resources/scripts/rock_paper_scissors.js"></script>
-    <script src="resources/scripts/index.js"></script>
+<!-- Our own Scripts -->
+<script src="resources/scripts/rock_paper_scissors.js"></script>
+<script src="resources/scripts/index.js"></script>
 </body>
 
 </html>
