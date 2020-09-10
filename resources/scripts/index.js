@@ -30,7 +30,7 @@ function updateGameHistoryUI(){
 startGameButton.addEventListener(`click`, function () {
   game = new RockPaperScissors(userName.value);
  // welcomeScreen.classList.add(`d-none`);
- // gameScreen.classList.remove(`d-none`);
+  gameScreen.classList.remove(`d-none`);
   // Complete
 });
 
